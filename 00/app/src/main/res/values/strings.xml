@@ -9,4 +9,5 @@
     <string name="home_activity_title">Home</string>
     <string name="label_username">Username: %s</string>
     <string name="label_password">Password: %s</string>
+    <string name="no_username_or_password_toast">Username or password field is empty</string>
 </resources>

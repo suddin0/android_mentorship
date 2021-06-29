@@ -14,26 +14,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btn = findViewById<Button>(R.id.login_button);
-        btn.setOnClickListener {
+        findViewById<Button>(R.id.login_button).setOnClickListener {
 
-            val userName : TextView = findViewById<TextView>(R.id.username_input);
-            val password : TextView = findViewById<TextView>(R.id.password_input);
+            val userName : TextView = findViewById<TextView>(R.id.username_edit_text)
+            val password : TextView = findViewById<TextView>(R.id.password_edit_text)
 
-            if(userName.text.toString() == "" && password.text.toString() == "") {
-                Toast.makeText(this, "Username and password field are empty", Toast.LENGTH_SHORT).show()
-            } else if(userName.text.toString() == "") {
-                Toast.makeText(this, "Username field is empty", Toast.LENGTH_SHORT).show()
-            } else if(password.text.toString() == "") {
-                Toast.makeText(this, "Password field is empty", Toast.LENGTH_SHORT).show()
+            if(userName.text.toString().isNullOrEmpty() && password.text.toString().isNullOrEmpty()) {
+                Toast.makeText(this, getString(R.string.no_username_or_password_toast), Toast.LENGTH_SHORT).show()
             } else {
-                val i = Intent(this@MainActivity, HomeActivity::class.java);
-                i.putExtra("username", userName.text.toString());
-                i.putExtra("password", password.text.toString());
+                val i = Intent(this@MainActivity, HomeActivity::class.java)
+                i.putExtra("username", userName.text.toString())
+                i.putExtra("password", password.text.toString())
                 startActivity(i);
             }
-
-
         }
     }
 }
