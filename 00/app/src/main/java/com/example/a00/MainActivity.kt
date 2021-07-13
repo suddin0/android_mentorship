@@ -9,10 +9,14 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 
+private const val TAG : String = "MainActivity___"
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        println("onCreate")
+        Log.i(TAG, "onCreate")
+
 
         findViewById<Button>(R.id.login_button).setOnClickListener {
 
@@ -28,5 +32,35 @@ class MainActivity : AppCompatActivity() {
                 startActivity(i);
             }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        println("onStart")
+        Log.i(TAG, "onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        println("onResume")
+        Log.i(TAG, "onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        println("onPause")
+        Log.i(TAG, "onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        println("onStop")
+        Log.i(TAG, "onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        println("onDestroy")
+        Log.i(TAG, "onDestroy")
     }
 }
